@@ -1,0 +1,8 @@
+section#edit-bar
+
+section#template
+  form.form-horizontal(action=url_for(action: "generate") method="post")
+    = render partial: 'doc'
+
+script
+  | TemplateEditor.initialize()

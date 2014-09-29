@@ -1,0 +1,88 @@
+// Place all the styles related to the template controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.being-edited {
+  color: red
+}
+
+question {
+  margin-top: 10px;
+  display: block;
+}
+
+question_text {
+  display: block;
+  color: #333;
+  font-size: 17.5px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+text {
+  display: block;
+  color: #333;
+  font-size: 14.5px;
+  font-weight: bold;
+}
+
+section_text {
+  display: block;
+  color: #333;
+  font-size: 19.5px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.checkbox_other {
+  // Match height of the textbox inside
+  height: 20px;
+}
+
+input.other_textbox {
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+
+table
+{
+  border-collapse:collapse;
+}
+
+th {
+  background: #B9C9FE;
+  border: 1px solid #039;
+  color: #039;
+  padding: 3px;
+}
+
+td {
+  background: #E8EDFF;
+  border: 1px solid white;
+  color: #669;
+  padding: 3px;
+  text-align: center;
+}
+
+
+td > input {
+  background: white;
+  margin-bottom: 0px;
+}
+
+td span a.dropdown-nipple {
+  top: -5px;
+  height: 26px;
+}
+
+.table-row-model {
+  display: none;
+}
+
+
+Value,ValueOther {
+  display: none;
+}

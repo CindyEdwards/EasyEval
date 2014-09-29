@@ -1,0 +1,7 @@
+.container
+  form(action=url_for(action: "generate2") method="post")
+    textarea.micaela(name="json_data")= @json_data
+    button.btn(type="submit") Run logic.rb
+
+script
+  | EasyEval.Micaela.initialize()
