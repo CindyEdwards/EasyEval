@@ -459,8 +459,15 @@ class Logic
     params["PARAGRAPH_DISCUSSION_PROGNOSIS"]               = ""
     params["PARAGRAPH_CAPABILITY_OF_MANAGING_FUNDS"]       = ""
     params["PARAGRAPH_MEDICAL_SOURCE_STATEMENT"]           = ""
+    params["PARAGRAPH_CONCLUSION"]                         = ""
+    params["MEDICATION"]                                   = ""
+    params["DOSAGE"]                                       = ""
+    params["EFFECTIVENESS"]                                = ""
+    
 
     last_employment_place = 'FILL_THIS_IN' # ie, use the Q55 table and pull out the "last" row
+
+    params['PARAGRAPH_CONCLUSION'] << "Testing Conclusion Varaiable in logic.rb"
 
     params['PARAGRAPH_IDENTIFICATION'] << "#{fullname} is a #{age}-year old #{ethnicity} #{sex.downcase}. #{cap_pronoun} was born in #{birthplace} on #{birthdate}."
 
@@ -473,11 +480,14 @@ class Logic
       params['PARAGRAPH_CONFIDENTIALITY'] << "#{q11a.capitalize} is the historian for this interview. "
     end
 
+    params["PARAGRAPH_CHIEF_COMPLAINT"] << "#{q13}"
+    
     if is_truish(qa14)
-      params['PARAGRAPH_HISTORY_OF_PRESENT_ILLNESS'] << "#{title} #{lastname} was first diagnosed with #{q13} in #{q14} by #{q14a}. #{q14b}"
+      params['PARAGRAPH_REVIEW_OF_RECORDS'] << "#{title} #{lastname} was first diagnosed with #{q13} in #{q14} by #{q14a}. #{q14b}"
     else
-      params['PARAGRAPH_HISTORY_OF_PRESENT_ILLNESS'] << "#{title} #{lastname} has not been previously diagnosed with #{q13}. "
+      params['PARAGRAPH_REVIEW_OF_RECORDS'] << "#{title} #{lastname} has not been previously diagnosed with #{q13}. "
     end
+    
     params['PARAGRAPH_HISTORY_OF_PRESENT_ILLNESS'] << "Current symptoms of #{q13} include: #{q16}. #{cap_pronoun} also reported additional symptoms of: #{q16a.downcase}. "
     if is_truish(q15)
       params['PARAGRAPH_HISTORY_OF_PRESENT_ILLNESS'] << "Special circumstances at the onset of the conditions were: #{q15a}. "
@@ -506,10 +516,13 @@ class Logic
       params['PARAGRAPH_HISTORY_OF_PRESENT_ILLNESS'] << "#{q20a}. "
     end
 
-    params['PARAGRAPH_CURRENT_MEDICATIONS'] << "#{title} #{fullname} #{q21} currently taking medication. "
-
+    params['PARAGRAPH_CURRENT_MEDICATIONS'] << "#{title} #{fullname} #{q21} currently taking medication.  "
     if is_truish(q21)
-      params['PARAGRAPH_CURRENT_MEDICATIONS'] << "#{cap_pronoun} is prescribed #{q22}. #{cap_pronoun} reported #{pronoun} #{q21a} #{pos_pronoun} medications today. They are prescribed by #{q177.downcase}."
+      params['PARAGRAPH_CURRENT_MEDICATIONS'] << "#{cap_pronoun} is prescribed the following medications below. "
+      params['PARAGRAPH_CURRENT_MEDICATIONS'] << "#{cap_pronoun} reported #{pronoun} #{q21a} #{pos_pronoun} medications today. They are prescribed by #{q177.downcase}."
+      params['MEDICATION'] <<  "#{q22}"
+      params['DOSAGE'] << "#{q22}"
+      params['EFFECTIVENESS'] << "#{q22}"
     end
 
     params['PARAGRAPH_PAST_PSYCHIATRIC_HISTORY'] << "#{title} #{lastname} reported #{pronoun} #{q29} been admitted to a psychiatric hospital. "
@@ -602,34 +615,30 @@ class Logic
       params['PARAGRAPH_EMPLOYMENT_HISTORY'] << "#{cap_pronoun} reported #{pronoun} #{qa186a} had periods of unemployment due to #{qa56}. "
     end
 
-    params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "#{title} #{lastname}'s last level of education completed was #{q48}. "
-    params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "#{cap_pronoun} reported #{pos_pronoun} academic performance was #{q49.downcase}. "
-    params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "Additional relevant information about #{pos_pronoun} academic performance includes: #{q49a}. "
+    params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "#{title} #{lastname}'s last level of education completed was #{q48}.  "
+    params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "#{cap_pronoun} reported #{pos_pronoun} academic performance was #{q49.downcase}.  "
+    params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "Additional relevant information about #{pos_pronoun} academic performance includes: #{q49a}.  "
     params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "#{cap_pronoun} #{q49b} involved in school related activities"
     if is_truish(q49b)
       params['PARAGRAPH_EDUCATIONAL_HISTORY'] << " such as: #{q49c}. "
     else
-      params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "."
+      params['PARAGRAPH_EDUCATIONAL_HISTORY'] << ".  "
     end
-
     params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "#{cap_pronoun} #{q50} enrolled in special education courses"
     if is_truish(q50)
       params['PARAGRAPH_EDUCATIONAL_HISTORY'] << " in the following subjects: #{q51}. "
     else
-      params['PARAGRAPH_EDUCATIONAL_HISTORY'] << "."
+      params['PARAGRAPH_EDUCATIONAL_HISTORY'] << ".  "
     end
-
-
-
 
     params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << "#{title} #{lastname} #{qa57}"
     if is_truish(qa57)
-      params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << " for #{qa57a}. The most recent arrest was on #{qa58}, and the outcome was #{qa59}. #{cap_pronoun} #{qa57b} been arrested multiple times. "
+      params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << " for #{qa57a}. The most recent arrest was on #{qa58}, and the outcome was #{qa59}.  #{cap_pronoun} #{qa57b} been arrested multiple times.  "
     end
     if is_truish(qa60)
-      params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << "#{cap_pronoun} #{qa60} incarcerated on #{qa60b}. The incarceration lasted #{qa60a}. "
+      params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << "#{cap_pronoun} #{qa60} incarcerated on #{qa60b}.  The incarceration lasted #{qa60a}. "
     else
-      params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << "#{cap_pronoun} has never been incarcerated. "
+      params['PARAGRAPH_LEGAL_CRIMINAL_HISTORY'] << "#{cap_pronoun} has never been incarcerated.  "
     end
 
     params['PARAGRAPH_MILITARY_HISTORY'] << "#{title} #{lastname} #{qa61} in the military. "
@@ -864,6 +873,7 @@ class Logic
     params['PARAGRAPH_MEDICAL_SOURCE_STATEMENT'] << "#{fullname}’s fund of knowledge is #{q125.downcase} when compared to #{pos_pronoun} peers. "
     params['PARAGRAPH_MEDICAL_SOURCE_STATEMENT'] << "#{cap_pos} ability to solve basic mathematical problems is #{q131.downcase}. #{cap_pronoun} #{q156}. "
 
+        
     return params
   end
 end
