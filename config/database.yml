@@ -34,20 +34,21 @@ test: &test
 	database: db/test.sqlite3
   
 	pool: 5
-  timeout: 5000
+  
+	timeout: 5000
 
 
 
 production:
   
-	adapter: sqlite3
-  
-	database: db/production.sqlite3
-  
+	adapter: postgresql  
+	database: prod-db  
 	pool: 5
   
 	timeout: 5000
 
+	host: 127.0.0.1
+	port: 5432
 	
 cucumber:
   <<: *test
