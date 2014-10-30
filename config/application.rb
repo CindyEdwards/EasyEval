@@ -34,6 +34,13 @@ end
 
 module Easyeval
   class Application < Rails::Application
+    
+    #  This option is new in Rails 3.2 and prevents the Rails environment to be loaded 
+    #  when the assets:precompile task is executed. Because Heroku precompile assets 
+    #  before setting the database configuration, you need to set this configuration to 
+    #  false or you Rails application will try to connect to an unexisting database.
+    #  http://simonecarletti.com/blog/2012/02/heroku-and-rails-3-2-assetprecompile-error/
+    config.assets.initialize_on_precompile = false
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
