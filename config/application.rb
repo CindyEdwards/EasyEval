@@ -32,6 +32,15 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+module AssetsInitializers
+  class Railtie < Rails::Railtie
+    initializer "assets_initializers.initialize_rails",
+                :group => :assets do |app|
+      require "#{Rails.root}/config/initializers/load_config.rb"
+    end
+  end
+end
+
 module Easyeval
   class Application < Rails::Application
     
