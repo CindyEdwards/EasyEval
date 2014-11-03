@@ -254,7 +254,7 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   rolify (>= 3.2.0)
   rspec-rails (>= 2.11.4)
-  rubyzip (>= 0.9.9)
+  rubyzip (= 0.9.9)
   sass-rails (~> 3.2.3)
   simple_form (>= 2.0.4)
   slim

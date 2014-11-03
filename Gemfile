@@ -25,7 +25,8 @@ gem "stripe", ">= 1.7.4"
 gem "stripe_event", ">= 0.4.0"
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem 'slim'
-gem "rubyzip", ">= 0.9.9"
+#gem "rubyzip", ">= 0.9.9"
+gem "rubyzip", "0.9.9"
 gem 'backbone-rails'
 gem 'bigdecimal'
 
