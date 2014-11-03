@@ -46,3 +46,4 @@ group :production do
 end
 
 # gem 'unicorn'  http://stackoverflow.com/questions/10764199/develop-on-windows-run-unicorn-in-production-on-heroku/10764443#10764443
+ruby '1.9.3'

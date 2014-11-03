@@ -106,3 +106,13 @@ module Easyeval
     config.middleware.use PrettyJsonResponse
   end
 end
+
+#http://stackoverflow.com/questions/16149589/rails-precompile-constant-uninitialized
+module AssetsInitializers
+  class Railtie < Rails::Railtie
+    initializer "assets_initializers.initialize_rails",
+                :group => :assets do |app|
+      require "#{Rails.root}/config/initializers/stripe.rb" 
+    end
+  end
+end
