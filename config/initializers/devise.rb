@@ -14,6 +14,10 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  
+  # http://stackoverflow.com/questions/18080910/devise-secret-key-was-not-set
+  #  for running on Heroku only
+  config.secret_key = '3757bd066ccaa3d94eb1eee496f4f66c116e1064aac12eb55855ace7e5642269058c6fe873ba69d52941b80f806f446da632e18c96b2265f2ab794df8c075d18' if Rails.env == 'production'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

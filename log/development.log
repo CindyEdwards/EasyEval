@@ -3178,3 +3178,41 @@ Processing by HomeController#index as HTML
   Rendered layouts/_navigation.slim (0.0ms)
   Rendered layouts/_messages.slim (0.0ms)
 Completed 200 OK in 210ms (Views: 210.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-03 13:02:53 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.slim within layouts/application (10.0ms)
+  Rendered layouts/_navigation.slim (0.0ms)
+  Rendered layouts/_messages.slim (0.0ms)
+Completed 200 OK in 210ms (Views: 210.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/template" for 127.0.0.1 at 2014-11-03 13:02:57 -0800
+Processing by TemplateController#index as HTML
+  Rendered template/_Q16-illness.slim (90.0ms)
+  Rendered template/_doc.slim (430.0ms)
+  Rendered template/index.slim within layouts/application (430.0ms)
+  Rendered layouts/_navigation.slim (0.0ms)
+  Rendered layouts/_messages.slim (0.0ms)
+Completed 200 OK in 490ms (Views: 490.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-03 13:40:44 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.slim within layouts/application (10.0ms)
+  Rendered layouts/_navigation.slim (10.0ms)
+  Rendered layouts/_messages.slim (0.0ms)
+Completed 200 OK in 220ms (Views: 220.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/template" for 127.0.0.1 at 2014-11-03 13:40:48 -0800
+Processing by TemplateController#index as HTML
+  Rendered template/_Q16-illness.slim (90.0ms)
+  Rendered template/_doc.slim (430.0ms)
+  Rendered template/index.slim within layouts/application (440.0ms)
+  Rendered layouts/_navigation.slim (0.0ms)
+  Rendered layouts/_messages.slim (0.0ms)
+Completed 200 OK in 480ms (Views: 480.0ms | ActiveRecord: 0.0ms)
