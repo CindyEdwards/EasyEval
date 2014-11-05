@@ -3235,3 +3235,22 @@ Processing by TemplateController#index as HTML
   Rendered layouts/_navigation.slim (10.0ms)
   Rendered layouts/_messages.slim (0.0ms)
 Completed 200 OK in 470ms (Views: 470.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-05 13:24:12 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.slim within layouts/application (16.0ms)
+  Rendered layouts/_navigation.slim (2.0ms)
+  Rendered layouts/_messages.slim (2.0ms)
+Completed 200 OK in 462ms (Views: 462.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/template" for 127.0.0.1 at 2014-11-05 13:24:17 -0800
+Processing by TemplateController#index as HTML
+  Rendered template/_Q16-illness.slim (90.0ms)
+  Rendered template/_doc.slim (438.0ms)
+  Rendered template/index.slim within layouts/application (445.0ms)
+  Rendered layouts/_navigation.slim (0.0ms)
+  Rendered layouts/_messages.slim (0.0ms)
+Completed 200 OK in 478ms (Views: 476.0ms | ActiveRecord: 0.0ms)
