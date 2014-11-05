@@ -13,6 +13,11 @@ Easyeval::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
+  
+  # http://guides.rubyonrails.org/asset_pipeline.html
+  # set asset compression methods
+  config.assets.css_compressor = :yui
+  config.assets.js_compressor = :uglify
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
